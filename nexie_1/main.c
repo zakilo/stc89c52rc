@@ -23,9 +23,9 @@ void markNum(U8 position, U8 value) {
 }
 
 void main() {
-    U16 value = 0;
+    U16 value = sizeof(U8) * 100 + sizeof(U16) * 10 + sizeof(U32);
     int i = 0;
-    U16 j, k, m, n;
+    U16 m, n;
     while(1) {
         if (checkBtnPressedAt(1)) {
             ++value;
@@ -40,9 +40,16 @@ void main() {
             value >>= 1;
         }
         
+        // exceed max number, beep
+        if (value > 0xFFFF) {
+            P2_5 = 1;
+        } else {
+            P2_5 = 0;
+        }
+        
         m = 10;
         n = 1;
-        for (i = 0; i < 4; ++i) {
+        for (i = 0; i < 5; ++i) {
             markNum(i + 1, value % m / n);
             m *= 10;
             n *= 10;

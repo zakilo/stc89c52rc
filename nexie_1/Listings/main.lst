@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   MAIN                                                              04/02/2022 15:20:34 PAGE 1   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/02/2022 16:07:38 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
@@ -33,9 +33,9 @@ line level    source
   23   1      }
   24          
   25          void main() {
-  26   1          U16 value = 0;
+  26   1          U16 value = sizeof(U8) * 100 + sizeof(U16) * 10 + sizeof(U32);
   27   1          int i = 0;
-  28   1          U16 j, k, m, n;
+  28   1          U16 m, n;
   29   1          while(1) {
   30   2              if (checkBtnPressedAt(1)) {
   31   3                  ++value;
@@ -50,30 +50,35 @@ line level    source
   40   3                  value >>= 1;
   41   3              }
   42   2              
-  43   2              m = 10;
-  44   2              n = 1;
-  45   2              for (i = 0; i < 4; ++i) {
-  46   3                  markNum(i + 1, value % m / n);
-  47   3                  m *= 10;
-  48   3                  n *= 10;
-  49   3              }
-  50   2          }
-  51   1      }
-*** WARNING C280 IN LINE 28 OF main.c: 'j': unreferenced local variable
-*** WARNING C280 IN LINE 28 OF main.c: 'k': unreferenced local variable
+  43   2              // exceed max number, beep
+  44   2              if (value > 0xFFFF) {
+  45   3                  P2_5 = 1;
+  46   3              } else {
+  47   3                  P2_5 = 0;
+  48   3              }
+  49   2              
+  50   2              m = 10;
+  51   2              n = 1;
+  52   2              for (i = 0; i < 5; ++i) {
+  53   3                  markNum(i + 1, value % m / n);
+  54   3                  m *= 10;
+C51 COMPILER V9.60.0.0   MAIN                                                              04/02/2022 16:07:38 PAGE 2   
 
-C51 COMPILER V9.60.0.0   MAIN                                                              04/02/2022 15:20:34 PAGE 2   
+  55   3                  n *= 10;
+  56   3              }
+  57   2          }
+  58   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    391    ----
+   CODE SIZE        =    270    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =     20      24
+   DATA SIZE        =     10       8
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

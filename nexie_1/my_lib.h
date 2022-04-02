@@ -1,8 +1,9 @@
 #ifndef LIB_H
 #define LIB_H
 
-typedef unsigned short U8;
-typedef unsigned long U16;
+typedef unsigned char U8;
+typedef unsigned short U16;
+typedef unsigned long U32;
 
 
 void delayXms(U16 x);

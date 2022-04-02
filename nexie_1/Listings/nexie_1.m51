@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/02/2022  15:20:34  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/02/2022  16:07:39  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
@@ -13,11 +13,8 @@ INPUT MODULES INCLUDED:
   .\Objects\main.obj (MAIN)
   .\Objects\my_lib.obj (MY_LIB)
   D:\SOFTWARE\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
-  D:\SOFTWARE\KEIL_V5\C51\LIB\C51S.LIB (?C?LMUL)
-  D:\SOFTWARE\KEIL_V5\C51\LIB\C51S.LIB (?C?ULDIV)
-  D:\SOFTWARE\KEIL_V5\C51\LIB\C51S.LIB (?C?ULSHR)
-  D:\SOFTWARE\KEIL_V5\C51\LIB\C51S.LIB (?C?LSHL)
-  D:\SOFTWARE\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+  D:\SOFTWARE\KEIL_V5\C51\LIB\C51S.LIB (?C?IMUL)
+  D:\SOFTWARE\KEIL_V5\C51\LIB\C51S.LIB (?C?UIDIV)
   D:\SOFTWARE\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
 
 
@@ -29,20 +26,20 @@ LINK MAP OF MODULE:  .\Objects\nexie_1 (MAIN)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            DATA    0008H     0020H     UNIT         _DATA_GROUP_
-            DATA    0028H     0014H     UNIT         ?DT?MAIN
-            IDATA   003CH     0001H     UNIT         ?STACK
+            DATA    0008H     000AH     UNIT         ?DT?MAIN
+            DATA    0012H     000AH     UNIT         _DATA_GROUP_
+            IDATA   001CH     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
                     0003H     07FDH                  *** GAP ***
-            CODE    0800H     0163H     UNIT         ?C?LIB_CODE
-            CODE    0963H     0132H     UNIT         ?PR?MAIN?MAIN
-            CODE    0A95H     008CH     UNIT         ?C_C51STARTUP
-            CODE    0B21H     005CH     UNIT         ?PR?_CHECKBTNPRESSEDAT?MY_LIB
-            CODE    0B7DH     0055H     UNIT         ?PR?_MARKNUM?MAIN
-            CODE    0BD2H     0033H     UNIT         ?PR?_DELAYXMS?MY_LIB
-            CODE    0C05H     0017H     UNIT         ?C_INITSEG
+            CODE    0800H     00C5H     UNIT         ?PR?MAIN?MAIN
+            CODE    08C5H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0951H     0067H     UNIT         ?C?LIB_CODE
+            CODE    09B8H     0054H     UNIT         ?PR?_CHECKBTNPRESSEDAT?MY_LIB
+            CODE    0A0CH     0049H     UNIT         ?PR?_MARKNUM?MAIN
+            CODE    0A55H     0024H     UNIT         ?PR?_DELAYXMS?MY_LIB
+            CODE    0A79H     000DH     UNIT         ?C_INITSEG
 
 
 
@@ -56,19 +53,19 @@ SEGMENT                                 DATA_GROUP
   +--> ?PR?MAIN?MAIN
   +--> ?C_INITSEG
 
-?PR?MAIN?MAIN                         0008H    0016H
+?PR?MAIN?MAIN                         0012H    0008H
   +--> ?PR?_CHECKBTNPRESSEDAT?MY_LIB
   +--> ?PR?_MARKNUM?MAIN
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/02/2022  15:20:34  PAGE 2
 
-
-
-?PR?_CHECKBTNPRESSEDAT?MY_LIB         001EH    0004H
+?PR?_CHECKBTNPRESSEDAT?MY_LIB         -----    -----
   +--> ?PR?_DELAYXMS?MY_LIB
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/02/2022  16:07:39  PAGE 2
 
-?PR?_DELAYXMS?MY_LIB                  0022H    0006H
 
-?PR?_MARKNUM?MAIN                     001EH    0002H
+
+?PR?_DELAYXMS?MY_LIB                  001AH    0002H
+
+?PR?_MARKNUM?MAIN                     -----    -----
   +--> ?PR?_DELAYXMS?MY_LIB
 
 
@@ -85,63 +82,67 @@ SYMBOL TABLE OF MODULE:  .\Objects\nexie_1 (MAIN)
   B:00A0H.2       PUBLIC        P2_2
   B:00A0H.3       PUBLIC        P2_3
   B:00A0H.4       PUBLIC        P2_4
-  C:0963H         PUBLIC        main
-  D:0028H         PUBLIC        nexieNumCode
-  C:0B7DH         PUBLIC        _markNum
+  B:00A0H.5       PUBLIC        P2_5
+  C:0800H         PUBLIC        main
+  D:0008H         PUBLIC        nexieNumCode
+  C:0A0CH         PUBLIC        _markNum
   -------         PROC          _MARKNUM
-  D:0006H         SYMBOL        position
-  D:001EH         SYMBOL        value
+  D:0007H         SYMBOL        position
+  D:0005H         SYMBOL        value
   -------         DO            
-  D:0006H         SYMBOL        actPos
+  D:0007H         SYMBOL        actPos
   -------         ENDDO         
-  C:0B7DH         LINE#         10
-  C:0B81H         LINE#         11
-  C:0B9DH         LINE#         12
-  C:0BA0H         LINE#         13
-  C:0BA4H         LINE#         14
-  C:0BA9H         LINE#         15
-  C:0BADH         LINE#         17
-  C:0BB8H         LINE#         18
-  C:0BC3H         LINE#         19
-  C:0BC3H         LINE#         21
-  C:0BCEH         LINE#         22
-  C:0BD1H         LINE#         23
+  C:0A0CH         LINE#         10
+  C:0A0CH         LINE#         11
+  C:0A29H         LINE#         12
+  C:0A2CH         LINE#         13
+  C:0A30H         LINE#         14
+  C:0A35H         LINE#         15
+  C:0A39H         LINE#         17
+  C:0A43H         LINE#         18
+  C:0A4AH         LINE#         19
+  C:0A4AH         LINE#         21
+  C:0A51H         LINE#         22
+  C:0A54H         LINE#         23
   -------         ENDPROC       _MARKNUM
   -------         PROC          MAIN
   -------         DO            
-  D:0008H         SYMBOL        value
-  D:000CH         SYMBOL        i
-  D:000EH         SYMBOL        j
-  D:0012H         SYMBOL        k
+  D:0012H         SYMBOL        value
+  D:0014H         SYMBOL        i
   D:0016H         SYMBOL        m
-  D:001AH         SYMBOL        n
+  D:0018H         SYMBOL        n
   -------         ENDDO         
-  C:0963H         LINE#         25
-  C:0963H         LINE#         26
-  C:096CH         LINE#         27
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/02/2022  15:20:34  PAGE 3
+  C:0800H         LINE#         25
+  C:0800H         LINE#         26
+  C:0806H         LINE#         27
+  C:080BH         LINE#         29
+  C:080BH         LINE#         30
+  C:0813H         LINE#         31
+  C:081BH         LINE#         32
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/02/2022  16:07:39  PAGE 3
 
 
-  C:0970H         LINE#         29
-  C:0970H         LINE#         30
-  C:097BH         LINE#         31
-  C:0990H         LINE#         32
-  C:0990H         LINE#         33
-  C:099BH         LINE#         34
-  C:09B3H         LINE#         35
-  C:09B3H         LINE#         36
-  C:09BEH         LINE#         37
-  C:09D3H         LINE#         38
-  C:09D3H         LINE#         39
-  C:09DEH         LINE#         40
-  C:09F3H         LINE#         41
-  C:09F3H         LINE#         43
-  C:09FDH         LINE#         44
-  C:0A06H         LINE#         45
-  C:0A1AH         LINE#         46
-  C:0A58H         LINE#         47
-  C:0A71H         LINE#         48
-  C:0A8AH         LINE#         49
+  C:081BH         LINE#         33
+  C:0823H         LINE#         34
+  C:082BH         LINE#         35
+  C:082BH         LINE#         36
+  C:0833H         LINE#         37
+  C:083EH         LINE#         38
+  C:083EH         LINE#         39
+  C:0846H         LINE#         40
+  C:0851H         LINE#         41
+  C:0851H         LINE#         44
+  C:085CH         LINE#         45
+  C:085EH         LINE#         46
+  C:0860H         LINE#         47
+  C:0862H         LINE#         48
+  C:0862H         LINE#         50
+  C:0868H         LINE#         51
+  C:086EH         LINE#         52
+  C:0880H         LINE#         53
+  C:08A1H         LINE#         54
+  C:08B0H         LINE#         55
+  C:08BBH         LINE#         56
   -------         ENDPROC       MAIN
   -------         ENDMOD        MAIN
 
@@ -151,100 +152,84 @@ SYMBOL TABLE OF MODULE:  .\Objects\nexie_1 (MAIN)
   B:00B0H.1       PUBLIC        P3_1
   B:00B0H.2       PUBLIC        P3_2
   B:00B0H.3       PUBLIC        P3_3
-  C:0B21H         PUBLIC        _checkBtnPressedAt
-  C:0BDAH         PUBLIC        _delayXms
-  C:0BD2H         SYMBOL        L?0034
-  -------         PROC          L?0033
-  -------         ENDPROC       L?0033
-  C:0BD2H         SYMBOL        L?0034
+  C:09B8H         PUBLIC        _checkBtnPressedAt
+  C:0A59H         PUBLIC        _delayXms
+  C:0A55H         SYMBOL        L?0031
+  -------         PROC          L?0030
+  -------         ENDPROC       L?0030
+  C:0A55H         SYMBOL        L?0031
   -------         PROC          _DELAYXMS
-  D:0022H         SYMBOL        x
+  D:0006H         SYMBOL        x
   -------         DO            
-  D:0026H         SYMBOL        i
+  D:001AH         SYMBOL        i
   -------         ENDDO         
-  C:0BDAH         LINE#         4
-  C:0BE2H         LINE#         5
-  C:0BEFH         LINE#         6
-  C:0BF5H         LINE#         7
-  C:0C04H         LINE#         8
-  C:0C04H         LINE#         9
+  C:0A59H         LINE#         4
+  C:0A59H         LINE#         5
+  C:0A63H         LINE#         6
+  C:0A69H         LINE#         7
+  C:0A78H         LINE#         8
+  C:0A78H         LINE#         9
   -------         ENDPROC       _DELAYXMS
   -------         PROC          _CHECKBTNPRESSEDAT
-  D:0002H         SYMBOL        i
+  D:0005H         SYMBOL        i
   -------         DO            
-  D:001EH         SYMBOL        period
+  D:0002H         SYMBOL        period
   -------         ENDDO         
-  C:0B21H         LINE#         14
-  C:0B25H         LINE#         15
-  C:0B2FH         LINE#         16
-  C:0B41H         LINE#         18
-  C:0B41H         LINE#         19
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/02/2022  15:20:34  PAGE 4
+  C:09B8H         LINE#         14
+  C:09BAH         LINE#         15
+  C:09BEH         LINE#         16
+  C:09CDH         LINE#         18
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/02/2022  16:07:39  PAGE 4
 
 
-  C:0B44H         LINE#         20
-  C:0B47H         LINE#         21
-  C:0B4AH         LINE#         22
-  C:0B4AH         LINE#         23
-  C:0B4CH         LINE#         24
-  C:0B4CH         LINE#         26
-  C:0B4CH         LINE#         27
-  C:0B4FH         LINE#         28
-  C:0B52H         LINE#         29
-  C:0B55H         LINE#         30
-  C:0B55H         LINE#         31
-  C:0B57H         LINE#         32
-  C:0B57H         LINE#         33
-  C:0B59H         LINE#         34
-  C:0B59H         LINE#         35
-  C:0B5CH         LINE#         36
-  C:0B5FH         LINE#         37
-  C:0B62H         LINE#         38
-  C:0B62H         LINE#         39
-  C:0B64H         LINE#         40
-  C:0B64H         LINE#         41
-  C:0B66H         LINE#         42
-  C:0B66H         LINE#         43
-  C:0B69H         LINE#         44
-  C:0B6CH         LINE#         45
-  C:0B6FH         LINE#         46
-  C:0B72H         LINE#         47
-  C:0B77H         LINE#         48
-  C:0B77H         LINE#         49
-  C:0B79H         LINE#         50
-  C:0B7CH         LINE#         51
-  C:0B7CH         LINE#         52
+  C:09CDH         LINE#         19
+  C:09D0H         LINE#         20
+  C:09D3H         LINE#         21
+  C:09D6H         LINE#         22
+  C:09D6H         LINE#         23
+  C:09D8H         LINE#         24
+  C:09D8H         LINE#         25
+  C:09DBH         LINE#         26
+  C:09DBH         LINE#         27
+  C:09DEH         LINE#         28
+  C:09E1H         LINE#         29
+  C:09E4H         LINE#         30
+  C:09E4H         LINE#         31
+  C:09E6H         LINE#         32
+  C:09E6H         LINE#         33
+  C:09E9H         LINE#         34
+  C:09E9H         LINE#         35
+  C:09ECH         LINE#         36
+  C:09EFH         LINE#         37
+  C:09F2H         LINE#         38
+  C:09F2H         LINE#         39
+  C:09F4H         LINE#         40
+  C:09F4H         LINE#         41
+  C:09F7H         LINE#         42
+  C:09F7H         LINE#         43
+  C:09FAH         LINE#         44
+  C:09FDH         LINE#         45
+  C:0A00H         LINE#         46
+  C:0A03H         LINE#         47
+  C:0A06H         LINE#         48
+  C:0A06H         LINE#         49
+  C:0A09H         LINE#         50
+  C:0A0BH         LINE#         51
+  C:0A0BH         LINE#         52
   -------         ENDPROC       _CHECKBTNPRESSEDAT
   -------         ENDMOD        MY_LIB
 
-  -------         MODULE        ?C?LMUL
-  C:0800H         PUBLIC        ?C?LMUL
-  -------         ENDMOD        ?C?LMUL
+  -------         MODULE        ?C?IMUL
+  C:0951H         PUBLIC        ?C?IMUL
+  -------         ENDMOD        ?C?IMUL
 
-  -------         MODULE        ?C?ULDIV
-  C:088BH         PUBLIC        ?C?ULDIV
-  -------         ENDMOD        ?C?ULDIV
-
-  -------         MODULE        ?C?ULSHR
-  C:091DH         PUBLIC        ?C?ULSHR
-  -------         ENDMOD        ?C?ULSHR
-
-  -------         MODULE        ?C?LSHL
-  C:0930H         PUBLIC        ?C?LSHL
-  -------         ENDMOD        ?C?LSHL
-
-  -------         MODULE        ?C?LLDIIDATA
-  C:094CH         PUBLIC        ?C?LLDIIDATA
-  C:0943H         PUBLIC        ?C?LLDIIDATA1
-  C:0945H         PUBLIC        ?C?LLDIIDATA8
-  -------         ENDMOD        ?C?LLDIIDATA
-
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/02/2022  15:20:34  PAGE 5
-
+  -------         MODULE        ?C?UIDIV
+  C:0963H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 022CH BYTE (27%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0192H BYTE (19%) *
 ******************************************************************************
 
-Program Size: data=61.0 xdata=0 code=1055
+Program Size: data=29.0 xdata=0 code=649
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

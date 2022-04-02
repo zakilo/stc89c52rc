@@ -1865,9 +1865,9 @@
       <ActiveTab>0</ActiveTab>
       <Doc>
         <Name>.\main.c</Name>
-        <ColumnNumber>20</ColumnNumber>
-        <TopLine>18</TopLine>
-        <CurrentLine>48</CurrentLine>
+        <ColumnNumber>65</ColumnNumber>
+        <TopLine>21</TopLine>
+        <CurrentLine>26</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
@@ -1883,9 +1883,9 @@
       </Doc>
       <Doc>
         <Name>.\my_lib.c</Name>
-        <ColumnNumber>6</ColumnNumber>
+        <ColumnNumber>0</ColumnNumber>
         <TopLine>1</TopLine>
-        <CurrentLine>21</CurrentLine>
+        <CurrentLine>3</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
