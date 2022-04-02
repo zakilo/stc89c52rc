@@ -1,0 +1,4 @@
+".\Objects\main.obj",
+".\Objects\my_lib.obj" 
+TO ".\Objects\nexie_1" 
+PRINT(".\Listings\nexie_1.m51") RAMSIZE(256) 
