@@ -22,6 +22,9 @@ void markNum(U8 position, U8 value) {
     P0 = 0;
 }
 
+/**
+ * btn 4 operator: +,-,*2,/2
+ */
 void main() {
     U16 value = sizeof(U8) * 100 + sizeof(U16) * 10 + sizeof(U32);
     int i = 0;
