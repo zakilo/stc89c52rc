@@ -13,7 +13,11 @@ void timer0_routine(void) interrupt 1 {
     TL0 = T1MS;
     TH0 = T1MS >> 8;
     if(count-- == 0) {
-        count = 1000;
+        if (checkBtnPressedAt(1)) {
+            P2_1 = !P2_1;
+        } else if(checkBtnPressedAt(2)) {
+            P2_2 = !P2_2;
+        }
         TEST_LED = !TEST_LED;
     }
 }

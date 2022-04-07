@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   MY_LIB                                                            04/05/2022 18:29:51 PAGE 1   
+C51 COMPILER V9.60.0.0   MY_LIB                                                            04/07/2022 23:15:30 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MY_LIB
@@ -11,65 +11,48 @@ line level    source
    1          #include <REGX52.H>
    2          #include "my_lib.h"
    3          
-   4          void delayXms(U8 x) {
-   5   1      }
-*** WARNING C280 IN LINE 4 OF my_lib.c: 'x': unreferenced local variable
-   6          
-   7          /**
-   8           * if pressed, return 1; else return 0.
-   9           */
-  10          U8 checkBtnPressedAt(U8 i) {
-  11   1          U16 period = 20;
-  12   1          switch(i) {
-  13   2              // pos 1 and 2 are reversed
-  14   2              case 1:
-  15   2                  if (P3_1 == 0) {
-  16   3                      delayXms(period);
-  17   3                      while(P3_1 == 0);
-  18   3                      delayXms(period);
+   4          
+   5          /**
+   6           * if pressed, return 1; else return 0.
+   7           */
+   8          U8 checkBtnPressedAt(U8 i) {
+   9   1          U16 period = 20;
+  10   1          switch(i) {
+  11   2              // pos 1 and 2 are reversed
+  12   2              case 1:
+  13   2                  if (P3_1 == 0) {
+  14   3                      return 1;
+  15   3                  }
+  16   2                  return 0;
+  17   2              case 2:
+  18   2                  if (P3_0 == 0) {
   19   3                      return 1;
   20   3                  }
   21   2                  return 0;
-  22   2              case 2:
-  23   2                  if (P3_0 == 0) {
-  24   3                      delayXms(period);
-  25   3                      while(P3_0 == 0);
-  26   3                      delayXms(period);
-  27   3                      return 1;
-  28   3                  }
-  29   2                  return 0;
-  30   2              case 3:
-  31   2                  if (P3_2 == 0) {
-  32   3                      delayXms(period);
-  33   3                      while(P3_2 == 0);
-  34   3                      delayXms(period);
-  35   3                      return 1;
-  36   3                  }
-  37   2                  return 0;
-  38   2              case 4:
-  39   2                  if (P3_3 == 0) {
-  40   3                      delayXms(period);
-  41   3                      while(P3_3 == 0);
-  42   3                      delayXms(period);
-  43   3                      return 1;
-  44   3                  }
-  45   2                  return 0;
-  46   2              default: return 0;
-  47   2          }
-  48   1      }
+  22   2              case 3:
+  23   2                  if (P3_2 == 0) {
+  24   3                      return 1;
+  25   3                  }
+  26   2                  return 0;
+  27   2              case 4:
+  28   2                  if (P3_3 == 0) {
+  29   3                      return 1;
+  30   3                  }
+  31   2                  return 0;
+  32   2              default: return 0;
+  33   2          }
+  34   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     95    ----
+   CODE SIZE        =     60    ----
    CONSTANT SIZE    =   ----    ----
-C51 COMPILER V9.60.0.0   MY_LIB                                                            04/05/2022 18:29:51 PAGE 2   
-
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =   ----       1
+   DATA SIZE        =   ----       2
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
