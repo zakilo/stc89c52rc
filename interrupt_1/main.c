@@ -15,7 +15,8 @@ void timer0_routine(void) interrupt 1 {
     if(count-- == 0) {
         if (checkBtnPressedAt(1)) {
             P2_1 = !P2_1;
-        } else if(checkBtnPressedAt(2)) {
+        }
+        if(checkBtnPressedAt(2)) {
             P2_2 = !P2_2;
         }
         TEST_LED = !TEST_LED;
@@ -38,6 +39,6 @@ void int0_init(void) {
 
 void main(void) {
     int0_init();
-    P2_0 = 0;
+    P2 = 0xFF;
     while(1);
 }

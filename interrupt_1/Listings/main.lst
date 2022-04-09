@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   MAIN                                                              04/07/2022 23:15:30 PAGE 1   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/09/2022 22:53:03 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
@@ -25,45 +25,46 @@ line level    source
   15   1          if(count-- == 0) {
   16   2              if (checkBtnPressedAt(1)) {
   17   3                  P2_1 = !P2_1;
-  18   3              } else if(checkBtnPressedAt(2)) {
-  19   3                  P2_2 = !P2_2;
-  20   3              }
-  21   2              TEST_LED = !TEST_LED;
-  22   2          }
-  23   1      }
-  24          
-  25          void int0_init(void) {
-  26   1          EA = 1; // enable global interrupt
-  27   1          ET0 = 1; // enable T0
-  28   1          PT0 = 0; // low priority
-  29   1          
-  30   1          TMOD &= 0xF0;
-  31   1          TMOD |= 0x01;
-  32   1          TR0 = 1;
-  33   1          TF0 = 0;
-  34   1          // timer count init
-  35   1          TL0 = T1MS;
-  36   1          TH0 = T1MS >> 8;
-  37   1      }
-  38          
-  39          void main(void) {
-  40   1          int0_init();
-  41   1          P2_0 = 0;
-  42   1          while(1);
-  43   1      }
+  18   3              }
+  19   2              if(checkBtnPressedAt(2)) {
+  20   3                  P2_2 = !P2_2;
+  21   3              }
+  22   2              TEST_LED = !TEST_LED;
+  23   2          }
+  24   1      }
+  25          
+  26          void int0_init(void) {
+  27   1          EA = 1; // enable global interrupt
+  28   1          ET0 = 1; // enable T0
+  29   1          PT0 = 0; // low priority
+  30   1          
+  31   1          TMOD &= 0xF0;
+  32   1          TMOD |= 0x01;
+  33   1          TR0 = 1;
+  34   1          TF0 = 0;
+  35   1          // timer count init
+  36   1          TL0 = T1MS;
+  37   1          TH0 = T1MS >> 8;
+  38   1      }
+  39          
+  40          void main(void) {
+  41   1          int0_init();
+  42   1          P2 = 0xFF;
+  43   1          while(1);
+  44   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    123    ----
+   CODE SIZE        =    122    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =      1    ----
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
-END OF MODULE INFORMATION.
+C51 COMPILER V9.60.0.0   MAIN                                                              04/09/2022 22:53:03 PAGE 2   
 
-C51 COMPILER V9.60.0.0   MAIN                                                              04/07/2022 23:15:30 PAGE 2   
+END OF MODULE INFORMATION.
 
 
 C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

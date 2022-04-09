@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/07/2022  23:15:30  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/09/2022  22:53:03  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
@@ -34,11 +34,11 @@ LINK MAP OF MODULE:  .\Objects\interrupt_1 (MAIN)
             CODE    000BH     0003H     ABSOLUTE     
                     000EH     07F2H                  *** GAP ***
             CODE    0800H     008CH     UNIT         ?C_C51STARTUP
-            CODE    088CH     005DH     UNIT         ?PR?TIMER0_ROUTINE?MAIN
-            CODE    08E9H     003CH     UNIT         ?PR?_CHECKBTNPRESSEDAT?MY_LIB
-            CODE    0925H     0017H     UNIT         ?PR?INT0_INIT?MAIN
-            CODE    093CH     0007H     UNIT         ?PR?MAIN?MAIN
-            CODE    0943H     0004H     UNIT         ?C_INITSEG
+            CODE    088CH     005BH     UNIT         ?PR?TIMER0_ROUTINE?MAIN
+            CODE    08E7H     003CH     UNIT         ?PR?_CHECKBTNPRESSEDAT?MY_LIB
+            CODE    0923H     0017H     UNIT         ?PR?INT0_INIT?MAIN
+            CODE    093AH     0008H     UNIT         ?PR?MAIN?MAIN
+            CODE    0942H     0004H     UNIT         ?C_INITSEG
 
 
 
@@ -59,7 +59,7 @@ SEGMENT                                 DATA_GROUP
   +--> ?PR?MAIN?MAIN
   +--> ?C_INITSEG
 
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/07/2022  23:15:30  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/09/2022  22:53:03  PAGE 2
 
 
 ?PR?MAIN?MAIN                         -----    -----
@@ -76,11 +76,10 @@ SYMBOL TABLE OF MODULE:  .\Objects\interrupt_1 (MAIN)
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:00A0H         PUBLIC        P2
   B:00A8H.7       PUBLIC        EA
-  B:00A0H.0       PUBLIC        P2_0
   B:00A0H.1       PUBLIC        P2_1
-  C:0925H         PUBLIC        int0_init
+  C:0923H         PUBLIC        int0_init
   B:00A0H.2       PUBLIC        P2_2
-  C:093CH         PUBLIC        main
+  C:093AH         PUBLIC        main
   D:000AH         PUBLIC        count
   D:0089H         PUBLIC        TMOD
   C:088CH         PUBLIC        timer0_routine
@@ -99,33 +98,34 @@ SYMBOL TABLE OF MODULE:  .\Objects\interrupt_1 (MAIN)
   C:08B6H         LINE#         16
   C:08BEH         LINE#         17
   C:08C0H         LINE#         18
-  C:08CAH         LINE#         19
-  C:08CCH         LINE#         20
-  C:08CCH         LINE#         21
-  C:08CEH         LINE#         22
-  C:08CEH         LINE#         23
+  C:08C0H         LINE#         19
+  C:08C8H         LINE#         20
+  C:08CAH         LINE#         21
+  C:08CAH         LINE#         22
+  C:08CCH         LINE#         23
+  C:08CCH         LINE#         24
   -------         ENDPROC       TIMER0_ROUTINE
   -------         PROC          INT0_INIT
-  C:0925H         LINE#         25
-  C:0925H         LINE#         26
-  C:0927H         LINE#         27
-  C:0929H         LINE#         28
-  C:092BH         LINE#         30
-  C:092EH         LINE#         31
-  C:0931H         LINE#         32
-  C:0933H         LINE#         33
-  C:0935H         LINE#         35
-  C:0938H         LINE#         36
-  C:093BH         LINE#         37
+  C:0923H         LINE#         26
+  C:0923H         LINE#         27
+  C:0925H         LINE#         28
+  C:0927H         LINE#         29
+  C:0929H         LINE#         31
+  C:092CH         LINE#         32
+  C:092FH         LINE#         33
+  C:0931H         LINE#         34
+  C:0933H         LINE#         36
+  C:0936H         LINE#         37
+  C:0939H         LINE#         38
   -------         ENDPROC       INT0_INIT
   -------         PROC          MAIN
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/07/2022  23:15:30  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/09/2022  22:53:03  PAGE 3
 
 
-  C:093CH         LINE#         39
-  C:093CH         LINE#         40
-  C:093FH         LINE#         41
-  C:0941H         LINE#         42
+  C:093AH         LINE#         40
+  C:093AH         LINE#         41
+  C:093DH         LINE#         42
+  C:0940H         LINE#         43
   -------         ENDPROC       MAIN
   -------         ENDMOD        MAIN
 
@@ -135,44 +135,44 @@ SYMBOL TABLE OF MODULE:  .\Objects\interrupt_1 (MAIN)
   B:00B0H.1       PUBLIC        P3_1
   B:00B0H.2       PUBLIC        P3_2
   B:00B0H.3       PUBLIC        P3_3
-  C:08E9H         PUBLIC        _checkBtnPressedAt
+  C:08E7H         PUBLIC        _checkBtnPressedAt
   -------         PROC          _CHECKBTNPRESSEDAT
   D:0007H         SYMBOL        i
   -------         DO            
   D:0008H         SYMBOL        period
   -------         ENDDO         
-  C:08E9H         LINE#         8
-  C:08E9H         LINE#         9
-  C:08EFH         LINE#         10
-  C:08FEH         LINE#         12
-  C:08FEH         LINE#         13
-  C:0901H         LINE#         14
-  C:0904H         LINE#         15
-  C:0904H         LINE#         16
-  C:0907H         LINE#         17
-  C:0907H         LINE#         18
-  C:090AH         LINE#         19
-  C:090DH         LINE#         20
-  C:090DH         LINE#         21
-  C:0910H         LINE#         22
-  C:0910H         LINE#         23
-  C:0913H         LINE#         24
-  C:0916H         LINE#         25
-  C:0916H         LINE#         26
-  C:0919H         LINE#         27
-  C:0919H         LINE#         28
-  C:091CH         LINE#         29
-  C:091FH         LINE#         30
-  C:091FH         LINE#         31
-  C:0922H         LINE#         32
-  C:0924H         LINE#         33
-  C:0924H         LINE#         34
+  C:08E7H         LINE#         8
+  C:08E7H         LINE#         9
+  C:08EDH         LINE#         10
+  C:08FCH         LINE#         12
+  C:08FCH         LINE#         13
+  C:08FFH         LINE#         14
+  C:0902H         LINE#         15
+  C:0902H         LINE#         16
+  C:0905H         LINE#         17
+  C:0905H         LINE#         18
+  C:0908H         LINE#         19
+  C:090BH         LINE#         20
+  C:090BH         LINE#         21
+  C:090EH         LINE#         22
+  C:090EH         LINE#         23
+  C:0911H         LINE#         24
+  C:0914H         LINE#         25
+  C:0914H         LINE#         26
+  C:0917H         LINE#         27
+  C:0917H         LINE#         28
+  C:091AH         LINE#         29
+  C:091DH         LINE#         30
+  C:091DH         LINE#         31
+  C:0920H         LINE#         32
+  C:0922H         LINE#         33
+  C:0922H         LINE#         34
   -------         ENDPROC       _CHECKBTNPRESSEDAT
   -------         ENDMOD        MY_LIB
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00BDH BYTE ( 9%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00BCH BYTE ( 9%) *
 ******************************************************************************
 
-Program Size: data=12.0 xdata=0 code=333
+Program Size: data=12.0 xdata=0 code=332
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
