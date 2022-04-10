@@ -1,0 +1,7 @@
+".\Objects\main.obj",
+".\Objects\timer0.obj",
+".\Objects\clock_DS1302.obj",
+".\Objects\nexie2.obj",
+".\Objects\btn4.obj" 
+TO ".\Objects\clock_show" 
+PRINT(".\Listings\clock_show.m51") RAMSIZE(256) 
