@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/11/2022  00:38:46  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/11/2022  00:57:26  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
@@ -35,8 +35,8 @@ LINK MAP OF MODULE:  .\Objects\clock_show (MAIN)
             DATA    0021H     0011H     UNIT         _DATA_GROUP_
             DATA    0032H     000BH     UNIT         ?DT?NEXIE2
             DATA    003DH     0007H     UNIT         ?DT?TIMER0
-            DATA    0044H     0001H     UNIT         ?DT?MAIN
-            IDATA   0045H     0001H     UNIT         ?STACK
+            DATA    0044H     0005H     UNIT         ?DT?MAIN
+            IDATA   0049H     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
@@ -50,21 +50,21 @@ LINK MAP OF MODULE:  .\Objects\clock_show (MAIN)
             CODE    0AF0H     0061H     UNIT         ?PR?_READBYTECLOCKDS1302?CLOCK_DS1302
             CODE    0B51H     0058H     UNIT         ?PR?TIMER0ROUTINE?TIMER0
             CODE    0BA9H     004EH     UNIT         ?PR?_MARKNUMNEXIE?NEXIE2
-            CODE    0BF7H     003FH     UNIT         ?PR?_WRITETIMECLOCKDS1302?CLOCK_DS1302
-            CODE    0C36H     003CH     UNIT         ?PR?_CHECKBTNPRESSEDAT?BTN4
-            CODE    0C72H     003AH     UNIT         ?PR?READTIMECLOCKDS1302?CLOCK_DS1302
-            CODE    0CACH     0038H     UNIT         ?C_INITSEG
-            CODE    0CE4H     0028H     UNIT         ?PR?TIME0ROUTINE?MAIN
-            CODE    0D0CH     0025H     UNIT         ?PR?_INITTIMER0?TIMER0
-            CODE    0D31H     0015H     UNIT         ?PR?MAIN?MAIN
-            CODE    0D46H     0013H     UNIT         ?PR?_DELAYXMS?NEXIE2
-            CODE    0D59H     000BH     UNIT         ?PR?INITCLOCKDS1302?CLOCK_DS1302
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/11/2022  00:38:46  PAGE 2
+            CODE    0BF7H     0042H     UNIT         ?C_INITSEG
+            CODE    0C39H     003FH     UNIT         ?PR?_WRITETIMECLOCKDS1302?CLOCK_DS1302
+            CODE    0C78H     003EH     UNIT         ?PR?TIME0ROUTINE?MAIN
+            CODE    0CB6H     003CH     UNIT         ?PR?_CHECKBTNPRESSEDAT?BTN4
+            CODE    0CF2H     003AH     UNIT         ?PR?READTIMECLOCKDS1302?CLOCK_DS1302
+            CODE    0D2CH     0025H     UNIT         ?PR?_INITTIMER0?TIMER0
+            CODE    0D51H     0015H     UNIT         ?PR?MAIN?MAIN
+            CODE    0D66H     0013H     UNIT         ?PR?_DELAYXMS?NEXIE2
+            CODE    0D79H     000BH     UNIT         ?PR?INITCLOCKDS1302?CLOCK_DS1302
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/11/2022  00:57:26  PAGE 2
 
 
-            CODE    0D64H     0008H     UNIT         ?CO?MAIN
-            CODE    0D6CH     0007H     UNIT         ?CO?CLOCK_DS1302
-            CODE    0D73H     0001H     UNIT         ?PR?NOOP?CLOCK_DS1302
+            CODE    0D84H     0008H     UNIT         ?CO?MAIN
+            CODE    0D8CH     0007H     UNIT         ?CO?CLOCK_DS1302
+            CODE    0D93H     0001H     UNIT         ?PR?NOOP?CLOCK_DS1302
 
 
 
@@ -116,18 +116,25 @@ SYMBOL TABLE OF MODULE:  .\Objects\clock_show (MAIN)
 
   -------         MODULE        MAIN
   C:0000H         SYMBOL        _ICE_DUMMY_
-  C:0D31H         PUBLIC        main
-  C:0D64H         SYMBOL        _?ix1000
-  C:0CE4H         PUBLIC        time0Routine
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/11/2022  00:38:46  PAGE 3
+  D:0044H         PUBLIC        gDelayCnt
+  C:0D51H         PUBLIC        main
+  C:0D84H         SYMBOL        _?ix1000
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/11/2022  00:57:26  PAGE 3
 
 
+  C:0C78H         PUBLIC        time0Routine
   C:0942H         PUBLIC        showTime
-  D:0044H         PUBLIC        gMode
+  D:0045H         PUBLIC        gTimerDelay
+  D:0047H         PUBLIC        gDelayTotal
+  D:0048H         PUBLIC        gMode
   -------         PROC          TIME0ROUTINE
-  C:0CE4H         LINE#         10
-  C:0CE4H         LINE#         11
-  C:0D0BH         LINE#         12
+  C:0C78H         LINE#         12
+  C:0C78H         LINE#         13
+  C:0C7CH         LINE#         14
+  C:0CA3H         LINE#         15
+  C:0CA8H         LINE#         16
+  C:0CA8H         LINE#         18
+  C:0CB5H         LINE#         19
   -------         ENDPROC       TIME0ROUTINE
   -------         PROC          SHOWTIME
   -------         DO            
@@ -135,43 +142,46 @@ SYMBOL TABLE OF MODULE:  .\Objects\clock_show (MAIN)
   D:0021H         SYMBOL        nexieNum
   D:0029H         SYMBOL        i
   -------         ENDDO         
-  C:0942H         LINE#         14
-  C:0942H         LINE#         15
-  C:0942H         LINE#         16
-  C:0958H         LINE#         18
-  C:095BH         LINE#         19
-  C:095FH         LINE#         20
-  C:0967H         LINE#         21
-  C:096FH         LINE#         22
-  C:0972H         LINE#         23
-  C:097DH         LINE#         24
-  C:0985H         LINE#         25
-  C:0988H         LINE#         26
-  C:0993H         LINE#         27
-  C:099BH         LINE#         28
-  C:099DH         LINE#         29
-  C:09A8H         LINE#         30
-  C:09B0H         LINE#         31
-  C:09BBH         LINE#         32
-  C:09C3H         LINE#         33
-  C:09CEH         LINE#         34
-  C:09D6H         LINE#         35
-  C:09D9H         LINE#         36
-  C:09DCH         LINE#         37
-  C:09DCH         LINE#         39
-  C:09EAH         LINE#         40
-  C:09F8H         LINE#         41
-  C:09FCH         LINE#         42
+  C:0942H         LINE#         21
+  C:0942H         LINE#         22
+  C:0942H         LINE#         23
+  C:0958H         LINE#         25
+  C:095BH         LINE#         26
+  C:095FH         LINE#         27
+  C:0967H         LINE#         28
+  C:096FH         LINE#         29
+  C:0972H         LINE#         30
+  C:097DH         LINE#         31
+  C:0985H         LINE#         32
+  C:0988H         LINE#         33
+  C:0993H         LINE#         34
+  C:099BH         LINE#         35
+  C:099DH         LINE#         36
+  C:09A8H         LINE#         37
+  C:09B0H         LINE#         38
+  C:09BBH         LINE#         39
+  C:09C3H         LINE#         40
+  C:09CEH         LINE#         41
+  C:09D6H         LINE#         42
+  C:09D9H         LINE#         43
+  C:09DCH         LINE#         44
+  C:09DCH         LINE#         46
+  C:09EAH         LINE#         47
+  C:09F8H         LINE#         48
+  C:09FCH         LINE#         49
   -------         ENDPROC       SHOWTIME
   -------         PROC          MAIN
-  C:0D31H         LINE#         44
-  C:0D31H         LINE#         45
-  C:0D34H         LINE#         46
-  C:0D41H         LINE#         48
-  C:0D41H         LINE#         49
-  C:0D44H         LINE#         50
+  C:0D51H         LINE#         51
+  C:0D51H         LINE#         52
+  C:0D54H         LINE#         53
+  C:0D61H         LINE#         55
+  C:0D61H         LINE#         56
+  C:0D64H         LINE#         57
   -------         ENDPROC       MAIN
   -------         ENDMOD        MAIN
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/11/2022  00:57:26  PAGE 4
+
+
 
   -------         MODULE        TIMER0
   C:0000H         SYMBOL        _ICE_DUMMY_
@@ -179,33 +189,30 @@ SYMBOL TABLE OF MODULE:  .\Objects\clock_show (MAIN)
   D:003DH         PUBLIC        gTimer0Data
   D:0089H         PUBLIC        TMOD
   C:0B51H         PUBLIC        timer0Routine
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/11/2022  00:38:46  PAGE 4
-
-
   B:00A8H.1       PUBLIC        ET0
   B:0088H.5       PUBLIC        TF0
   D:008CH         PUBLIC        TH0
   D:008AH         PUBLIC        TL0
   B:00B8H.1       PUBLIC        PT0
   B:0088H.4       PUBLIC        TR0
-  C:0D0CH         PUBLIC        _initTimer0
+  C:0D2CH         PUBLIC        _initTimer0
   -------         PROC          _INITTIMER0
   D:0006H         SYMBOL        cntMs
   D:0001H         SYMBOL        routine
-  C:0D0CH         LINE#         6
-  C:0D0CH         LINE#         7
-  C:0D0EH         LINE#         8
-  C:0D10H         LINE#         9
-  C:0D12H         LINE#         11
-  C:0D15H         LINE#         12
-  C:0D18H         LINE#         13
-  C:0D1AH         LINE#         14
-  C:0D1CH         LINE#         17
-  C:0D1FH         LINE#         18
-  C:0D22H         LINE#         20
-  C:0D26H         LINE#         21
-  C:0D2AH         LINE#         22
-  C:0D30H         LINE#         23
+  C:0D2CH         LINE#         6
+  C:0D2CH         LINE#         7
+  C:0D2EH         LINE#         8
+  C:0D30H         LINE#         9
+  C:0D32H         LINE#         11
+  C:0D35H         LINE#         12
+  C:0D38H         LINE#         13
+  C:0D3AH         LINE#         14
+  C:0D3CH         LINE#         17
+  C:0D3FH         LINE#         18
+  C:0D42H         LINE#         20
+  C:0D46H         LINE#         21
+  C:0D4AH         LINE#         22
+  C:0D50H         LINE#         23
   -------         ENDPROC       _INITTIMER0
   -------         PROC          TIMER0ROUTINE
   C:0B51H         LINE#         25
@@ -221,17 +228,20 @@ SYMBOL TABLE OF MODULE:  .\Objects\clock_show (MAIN)
 
   -------         MODULE        CLOCK_DS1302
   C:0000H         SYMBOL        _ICE_DUMMY_
-  C:0C72H         PUBLIC        readTimeClockDS1302
+  C:0CF2H         PUBLIC        readTimeClockDS1302
   D:00B0H         PUBLIC        P3
   C:0AF0H         PUBLIC        _readByteClockDS1302
-  C:0D59H         PUBLIC        initClockDS1302
-  C:0BF7H         PUBLIC        _writeTimeClockDS1302
+  C:0D79H         PUBLIC        initClockDS1302
+  C:0C39H         PUBLIC        _writeTimeClockDS1302
   C:0A89H         PUBLIC        _writeByteClockDS1302
   B:00B0H.6       PUBLIC        DS1302_CLK
   D:0008H         PUBLIC        gWRITE_SAFE_SWITCH
   D:000AH         PUBLIC        gWRITE_RTC_ADDR
-  C:0D73H         PUBLIC        noop
-  C:0D6CH         SYMBOL        _?ix1000
+  C:0D93H         PUBLIC        noop
+  C:0D8CH         SYMBOL        _?ix1000
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/11/2022  00:57:26  PAGE 5
+
+
   B:00B0H.5       PUBLIC        DS1302_CE
   D:0011H         PUBLIC        gREAD_RTC_ADDR
   D:0018H         PUBLIC        gDS1302_TIME
@@ -239,46 +249,43 @@ SYMBOL TABLE OF MODULE:  .\Objects\clock_show (MAIN)
   D:001FH         PUBLIC        gWRITE_SAFE_ADDR
   D:0020H         PUBLIC        gCLK_BYTE_SIZE
   -------         PROC          NOOP
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/11/2022  00:38:46  PAGE 5
-
-
-  C:0D73H         LINE#         21
-  C:0D73H         LINE#         24
+  C:0D93H         LINE#         21
+  C:0D93H         LINE#         24
   -------         ENDPROC       NOOP
   -------         PROC          INITCLOCKDS1302
   -------         DO            
   D:0021H         SYMBOL        i
   -------         ENDDO         
-  C:0D59H         LINE#         26
-  C:0D59H         LINE#         27
-  C:0D5CH         LINE#         28
+  C:0D79H         LINE#         26
+  C:0D79H         LINE#         27
+  C:0D7CH         LINE#         28
   -------         ENDPROC       INITCLOCKDS1302
   -------         PROC          READTIMECLOCKDS1302
   -------         DO            
   D:002AH         SYMBOL        i
   D:002BH         SYMBOL        time
   -------         ENDDO         
-  C:0C72H         LINE#         31
-  C:0C72H         LINE#         32
-  C:0C75H         LINE#         33
-  C:0C86H         LINE#         34
-  C:0C90H         LINE#         35
-  C:0CA1H         LINE#         36
-  C:0CA5H         LINE#         37
-  C:0CABH         LINE#         38
+  C:0CF2H         LINE#         31
+  C:0CF2H         LINE#         32
+  C:0CF5H         LINE#         33
+  C:0D06H         LINE#         34
+  C:0D10H         LINE#         35
+  C:0D21H         LINE#         36
+  C:0D25H         LINE#         37
+  C:0D2BH         LINE#         38
   -------         ENDPROC       READTIMECLOCKDS1302
   -------         PROC          _WRITETIMECLOCKDS1302
   D:0022H         SYMBOL        time
   -------         DO            
   D:0025H         SYMBOL        i
   -------         ENDDO         
-  C:0BF7H         LINE#         40
-  C:0BFDH         LINE#         41
-  C:0C00H         LINE#         42
-  C:0C07H         LINE#         43
-  C:0C11H         LINE#         44
-  C:0C2BH         LINE#         45
-  C:0C2FH         LINE#         46
+  C:0C39H         LINE#         40
+  C:0C3FH         LINE#         41
+  C:0C42H         LINE#         42
+  C:0C49H         LINE#         43
+  C:0C53H         LINE#         44
+  C:0C6DH         LINE#         45
+  C:0C71H         LINE#         46
   -------         ENDPROC       _WRITETIMECLOCKDS1302
   -------         PROC          _READBYTECLOCKDS1302
   D:0001H         SYMBOL        clockAddr
@@ -292,6 +299,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\clock_show (MAIN)
   C:0AF7H         LINE#         53
   C:0AF9H         LINE#         55
   C:0AFBH         LINE#         58
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/11/2022  00:57:26  PAGE 6
+
+
   C:0B05H         LINE#         59
   C:0B20H         LINE#         61
   C:0B22H         LINE#         63
@@ -299,9 +309,6 @@ SYMBOL TABLE OF MODULE:  .\Objects\clock_show (MAIN)
   C:0B27H         LINE#         66
   C:0B33H         LINE#         67
   C:0B36H         LINE#         68
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/11/2022  00:38:46  PAGE 6
-
-
   C:0B43H         LINE#         69
   C:0B43H         LINE#         71
   C:0B45H         LINE#         73
@@ -344,7 +351,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\clock_show (MAIN)
   B:00A0H.2       PUBLIC        P2_2
   B:00A0H.3       PUBLIC        P2_3
   B:00A0H.4       PUBLIC        P2_4
-  C:0D46H         PUBLIC        _delayXms
+  C:0D66H         PUBLIC        _delayXms
   D:0032H         PUBLIC        nexieNumCode
   C:0BA9H         PUBLIC        _markNumNexie
   D:003CH         PUBLIC        gDark
@@ -352,16 +359,16 @@ SYMBOL TABLE OF MODULE:  .\Objects\clock_show (MAIN)
   D:0006H         SYMBOL        x
   -------         DO            
   D:0005H         SYMBOL        i
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/11/2022  00:57:26  PAGE 7
+
+
   -------         ENDDO         
-  C:0D46H         LINE#         8
-  C:0D46H         LINE#         9
-  C:0D48H         LINE#         10
-  C:0D52H         LINE#         11
-  C:0D58H         LINE#         12
-  C:0D58H         LINE#         13
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/11/2022  00:38:46  PAGE 7
-
-
+  C:0D66H         LINE#         8
+  C:0D66H         LINE#         9
+  C:0D68H         LINE#         10
+  C:0D72H         LINE#         11
+  C:0D78H         LINE#         12
+  C:0D78H         LINE#         13
   -------         ENDPROC       _DELAYXMS
   -------         PROC          _MARKNUMNEXIE
   D:0007H         SYMBOL        position
@@ -392,35 +399,35 @@ SYMBOL TABLE OF MODULE:  .\Objects\clock_show (MAIN)
   B:00B0H.1       PUBLIC        P3_1
   B:00B0H.2       PUBLIC        P3_2
   B:00B0H.3       PUBLIC        P3_3
-  C:0C36H         PUBLIC        _checkBtnPressedAt
+  C:0CB6H         PUBLIC        _checkBtnPressedAt
   -------         PROC          _CHECKBTNPRESSEDAT
   D:0007H         SYMBOL        i
   -------         DO            
   D:0021H         SYMBOL        period
   -------         ENDDO         
-  C:0C36H         LINE#         8
-  C:0C36H         LINE#         9
-  C:0C3CH         LINE#         10
-  C:0C4BH         LINE#         12
-  C:0C54H         LINE#         13
-  C:0C5DH         LINE#         14
-  C:0C66H         LINE#         15
-  C:0C6FH         LINE#         16
-  C:0C71H         LINE#         17
-  C:0C71H         LINE#         18
+  C:0CB6H         LINE#         8
+  C:0CB6H         LINE#         9
+  C:0CBCH         LINE#         10
+  C:0CCBH         LINE#         12
+  C:0CD4H         LINE#         13
+  C:0CDDH         LINE#         14
+  C:0CE6H         LINE#         15
+  C:0CEFH         LINE#         16
+  C:0CF1H         LINE#         17
+  C:0CF1H         LINE#         18
   -------         ENDPROC       _CHECKBTNPRESSEDAT
   -------         ENDMOD        BTN4
 
   -------         MODULE        ?C?COPY
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/11/2022  00:57:26  PAGE 8
+
+
   C:08D0H         PUBLIC        ?C?COPY
   -------         ENDMOD        ?C?COPY
 
   -------         MODULE        ?C?CLDPTR
   C:08F6H         PUBLIC        ?C?CLDPTR
   -------         ENDMOD        ?C?CLDPTR
-
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/11/2022  00:38:46  PAGE 8
-
 
   -------         MODULE        ?C?CLDOPTR
   C:090FH         PUBLIC        ?C?CLDOPTR
@@ -435,8 +442,8 @@ SYMBOL TABLE OF MODULE:  .\Objects\clock_show (MAIN)
     SEGMENT: ?PR?NOOP?CLOCK_DS1302
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 03A8H BYTE (45%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 03C8H BYTE (47%) *
 ******************************************************************************
 
-Program Size: data=70.0 xdata=0 code=1402
+Program Size: data=74.0 xdata=0 code=1434
 LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

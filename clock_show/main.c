@@ -6,9 +6,16 @@
 #include "btn4.h"
 
 U8 gMode = 0; // 0 as HH:MM:SS, 1 as YY-MM-DD
+U16 gTimerDelay = 500; // ms
+U8 gDelayTotal = 6, gDelayCnt = 0;
 
 void time0Routine(void) {
-    gMode = checkBtnPressedAt(1) | checkBtnPressedAt(2) | checkBtnPressedAt(3) | checkBtnPressedAt(4);
+    if (gDelayCnt == 0) {        
+        gMode = checkBtnPressedAt(1) | checkBtnPressedAt(2) | checkBtnPressedAt(3) | checkBtnPressedAt(4);
+        if (gMode) gDelayCnt = gDelayTotal;
+    }
+
+    if (gDelayCnt > 0) --gDelayCnt;
 }
 
 void showTime(void) {
@@ -43,7 +50,7 @@ void showTime(void) {
 
 void main(void) {
     initClockDS1302();
-    initTimer0(500, time0Routine);
+    initTimer0(gTimerDelay, time0Routine);
 
     while(1) {
         showTime();
