@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   MAIN                                                              04/11/2022 00:57:26 PAGE 1   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/13/2022 21:07:12 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
@@ -36,10 +36,10 @@ line level    source
   26   1          if (gMode == 0) {
   27   2              nexieNum[0] = time[0] & 0x0F;
   28   2              nexieNum[1] = (time[0] & 0xF0) >> 4;
-  29   2              nexieNum[2] = 0xFF;
+  29   2              nexieNum[2] = 10;
   30   2              nexieNum[3] = time[1] & 0x0F;
   31   2              nexieNum[4] = (time[1] & 0xF0) >> 4;
-  32   2              nexieNum[5] = 0xFF;
+  32   2              nexieNum[5] = 10;
   33   2              nexieNum[6] = time[2] & 0x0F;
   34   2              nexieNum[7] = (time[2] & 0xF0) >> 4;
   35   2          } else {
@@ -62,7 +62,7 @@ line level    source
   52   1          initClockDS1302();
   53   1          initTimer0(gTimerDelay, time0Routine);
   54   1      
-C51 COMPILER V9.60.0.0   MAIN                                                              04/11/2022 00:57:26 PAGE 2   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/13/2022 21:07:12 PAGE 2   
 
   55   1          while(1) {
   56   2              showTime();

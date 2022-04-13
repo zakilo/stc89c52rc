@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   CLOCK_DS1302                                                      04/11/2022 00:57:26 PAGE 1   
+C51 COMPILER V9.60.0.0   CLOCK_DS1302                                                      04/13/2022 21:07:12 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE CLOCK_DS1302
@@ -62,7 +62,7 @@ line level    source
   52   1          // noop();
   53   1          DS1302_CLK = 0;
   54   1          // noop();
-C51 COMPILER V9.60.0.0   CLOCK_DS1302                                                      04/11/2022 00:57:26 PAGE 2   
+C51 COMPILER V9.60.0.0   CLOCK_DS1302                                                      04/13/2022 21:07:12 PAGE 2   
 
   55   1          DS1302_CE = 1;
   56   1          // noop();
@@ -126,7 +126,7 @@ line level    source
 MODULE INFORMATION:   STATIC OVERLAYABLE
    CODE SIZE        =    333    ----
    CONSTANT SIZE    =      7    ----
-C51 COMPILER V9.60.0.0   CLOCK_DS1302                                                      04/11/2022 00:57:26 PAGE 3   
+C51 COMPILER V9.60.0.0   CLOCK_DS1302                                                      04/13/2022 21:07:12 PAGE 3   
 
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

@@ -26,10 +26,10 @@ void showTime(void) {
     if (gMode == 0) {
         nexieNum[0] = time[0] & 0x0F;
         nexieNum[1] = (time[0] & 0xF0) >> 4;
-        nexieNum[2] = 0xFF;
+        nexieNum[2] = 10;
         nexieNum[3] = time[1] & 0x0F;
         nexieNum[4] = (time[1] & 0xF0) >> 4;
-        nexieNum[5] = 0xFF;
+        nexieNum[5] = 10;
         nexieNum[6] = time[2] & 0x0F;
         nexieNum[7] = (time[2] & 0xF0) >> 4;
     } else {
