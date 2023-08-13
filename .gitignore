@@ -1,3 +1,7 @@
-vscode/
-uv*
-fun
+# vscode
+.vscode/
+
+# keil project
+Listings/
+Objects/
+*.uv*
